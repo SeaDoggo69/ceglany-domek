@@ -1,0 +1,162 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { type Locale, locales, BOOKING_URL, getDictionary } from "@/lib/translations";
+
+export function Navigation({ locale }: { locale: Locale }) {
+  const t = getDictionary(locale).nav;
+  const pathname = usePathname();
+  const otherLocale = locales.find((l) => l !== locale) ?? "en";
+  const otherPath = pathname.replace(/^\/[a-z]{2}/, `/${otherLocale}`);
+
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  const links = [
+    { href: "#about", label: t.about },
+    { href: "#surroundings", label: t.surroundings },
+    { href: "#amenities", label: t.amenities },
+    { href: "#gallery", label: t.gallery },
+    { href: "#reviews", label: t.reviews },
+    { href: "#faq", label: t.faq },
+    { href: "#contact", label: t.contact },
+  ];
+
+  const onTop = !scrolled && !open;
+  const textBase = onTop ? "text-cream-soft" : "text-ink";
+  const textMuted = onTop
+    ? "text-cream-soft/80 hover:text-cream-soft"
+    : "text-ink-soft hover:text-ink";
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled || open
+          ? "bg-cream-soft/90 backdrop-blur-md border-b border-oak/10 py-3"
+          : "bg-gradient-to-b from-ink/40 to-transparent py-5"
+      }`}
+    >
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between gap-6">
+        <Link
+          href={`/${locale}`}
+          className="flex items-baseline gap-2 group"
+          onClick={() => setOpen(false)}
+        >
+          <span
+            className={`font-serif text-2xl md:text-[1.7rem] tracking-tight leading-none transition-colors duration-500 ${textBase}`}
+          >
+            Ceglany Domek
+          </span>
+          <span
+            className={`hidden sm:inline text-[0.7rem] uppercase tracking-[0.22em] transition-colors duration-500 ${
+              onTop ? "text-sage-soft" : "text-sage-deep"
+            }`}
+          >
+            Gryżyna
+          </span>
+        </Link>
+
+        <nav className="hidden lg:flex items-center gap-8">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`text-[0.82rem] uppercase tracking-[0.16em] link-underline transition-colors duration-500 ${textMuted}`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-5">
+          <Link
+            href={otherPath}
+            aria-label={`Switch language to ${otherLocale.toUpperCase()}`}
+            className={`link-underline text-[0.78rem] uppercase tracking-[0.22em] font-medium transition-colors duration-500 ${textMuted}`}
+          >
+            {otherLocale.toUpperCase()}
+          </Link>
+          <div className="hidden md:block">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`btn-primary !py-2.5 !px-5 !text-[0.8rem] ${
+                onTop ? "!bg-cream-soft !text-ink hover:!bg-brick hover:!text-cream-soft" : ""
+              }`}
+            >
+              {t.book}
+            </a>
+          </div>
+          <button
+            type="button"
+            aria-label={open ? t.menuClose : t.menuOpen}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className={`lg:hidden relative w-9 h-9 flex flex-col items-center justify-center gap-1.5 transition-colors duration-500 ${textBase}`}
+          >
+            <span
+              className={`block w-5 h-px bg-current transition-transform duration-300 ${
+                open ? "translate-y-[3px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block w-5 h-px bg-current transition-transform duration-300 ${
+                open ? "-translate-y-[3px] -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
+      </div>
+
+      <div
+        className={`lg:hidden fixed inset-x-0 top-[64px] bottom-0 bg-cream-soft/98 backdrop-blur-md transition-all duration-500 ${
+          open
+            ? "opacity-100 pointer-events-auto translate-y-0"
+            : "opacity-0 pointer-events-none -translate-y-2"
+        }`}
+      >
+        <nav className="flex flex-col px-8 pt-12 gap-2">
+          {links.map((link, i) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              style={{ transitionDelay: open ? `${i * 60}ms` : "0ms" }}
+              className={`font-serif text-3xl text-ink py-3 border-b border-oak/10 transition-all duration-500 ${
+                open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="mt-8 btn-primary w-full justify-center"
+          >
+            {t.book}
+          </a>
+        </nav>
+      </div>
+    </header>
+  );
+}

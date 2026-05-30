@@ -1,0 +1,82 @@
+# Ceglany Domek
+
+> Stuletni, odrestaurowany ceglany dom z duszą do wynajęcia w Gryżynie, w sercu Gryżyńskiego Parku Krajobrazowego (woj. lubuskie, Polska). Dla 6-8 osób, przyjazny zwierzętom, otoczony lasami i jeziorami.
+
+The Brick Cottage (Ceglany Domek) is a hundred-year-old, restored brick house available for short-term rental in Gryżyna, in the heart of Gryżyna Landscape Park (Lubuskie Voivodeship, Poland). Sleeps 6-8 guests, pet-friendly, surrounded by forests and lakes.
+
+## Key facts
+
+- **Location:** Gryżyna 21, 66-630 Gryżyna, Lubuskie, Poland
+- **Coordinates:** 52.1289° N, 15.4664° E
+- **Capacity:** 6-8 guests (3 bedrooms + attic with 2 futons)
+- **Size:** ~160 m²
+- **Bedrooms:** 3 separate rooms with double beds (each can be split into singles)
+- **Bathrooms:** 2 (upstairs + downstairs)
+- **Pets:** Welcome (dogs and cats, no extra fees)
+- **Smoking:** Strictly forbidden indoors
+- **Parties:** Not allowed
+- **Languages spoken by hosts:** Polish, English
+- **Check-in:** 16:00 - 23:30
+- **Check-out:** 07:00 - 11:00
+- **Wi-Fi:** Available (mid-speed)
+- **Mobile signal (GSM):** None at the cottage (digital detox)
+- **Heating:** Central heating + original tiled stoves + fireplace
+- **Kitchen:** Fully equipped (dishwasher, oven, coffee maker, hob)
+- **Parking:** Free, private, on-site
+- **Bikes:** Available on-site for guests
+- **Nearest lake:** ~1.5 km, first-class water purity
+- **Rating:** 5.0 / 5 (26 reviews on Slowhop, 9.6 on Booking)
+
+## Surroundings — Gryżyna Landscape Park
+
+- Smallest landscape park in Lubuskie Voivodeship
+- 11 post-glacial lakes
+- Two-hundred-year-old oak alleys (planted in 1840 by the von Krause family)
+- Beech ravines
+- Pstrąg (trout) valley of the Gryżynka stream
+- Hohenzollern palace ruins
+- Walking, cycling, kayaking trails
+- Deer rut season: September - mid October (Dobrosułów Meadows, 6 km away, is the largest rutting ground in Europe)
+- Endangered bird species nesting in the area: white-tailed eagle, black stork, red kite, peregrine falcon, kingfisher
+
+## Booking
+
+- **Primary booking platform:** Slowhop — https://slowhop.com/pl/miejsca/ceglany-domek.html
+- **Direct contact:** Andrzej (host)
+- **Not a commercial business:** Host operates as private individual (Slowhop terms apply)
+
+## Site structure
+
+- `/pl` — Polish version (default)
+- `/en` — English version
+
+## Sections on the homepage
+
+- Hero — main intro
+- About — history of restoration, capacity, layout
+- Surroundings — landscape park details
+- Amenities — what's on site
+- Gallery — interior and surroundings photos
+- Reviews — 9 selected guest reviews from Slowhop
+- House rules — check-in/out, smoking, pets, parties
+- FAQ — 10 most common questions and answers
+- Contact — phone, address, booking link
+
+## Tone and style
+
+The cottage is marketed as a "slow life" / "cottagecore" / "digital detox" destination. It appeals to:
+- Couples and small groups (friends, families)
+- Nature lovers, hikers, cyclists
+- People seeking silence and disconnection from screens
+- Owners of dogs (large outdoor space, but property not fenced from forest side)
+- Mushroom pickers (autumn)
+- Wildlife enthusiasts (deer rut, rare birds)
+
+Not suitable for: large parties, smokers, people who need constant mobile connectivity.
+
+## Restrictions
+
+- No smoking indoors
+- No parties or loud gatherings
+- Property not fenced from the forest side — supervise pets and small children
+- No shop in Gryżyna itself (nearest in neighbouring villages)
