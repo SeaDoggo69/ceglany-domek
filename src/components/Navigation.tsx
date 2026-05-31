@@ -207,8 +207,8 @@ export function Navigation({ locale }: { locale: Locale }) {
                 borderBottom: "1px solid rgba(107, 74, 43, 0.15)",
                 textDecoration: "none",
                 opacity: 1,
-                animation: `mmSlideIn 420ms ease-out ${80 + i * 45}ms backwards`,
               };
+              void i;
               if (link.page) {
                 return (
                   <Link
@@ -252,7 +252,6 @@ export function Navigation({ locale }: { locale: Locale }) {
                 letterSpacing: "0.04em",
                 textDecoration: "none",
                 opacity: 1,
-                animation: `mmSlideIn 420ms ease-out ${80 + links.length * 45 + 80}ms backwards`,
               }}
             >
               {t.book}
