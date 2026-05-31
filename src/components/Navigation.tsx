@@ -134,18 +134,23 @@ export function Navigation({ locale }: { locale: Locale }) {
       </div>
 
       <div
-        className={`lg:hidden fixed inset-x-0 top-[64px] bottom-0 bg-cream-soft/98 backdrop-blur-md transition-all duration-500 ${
+        aria-hidden={!open}
+        className={`lg:hidden fixed inset-0 z-40 bg-cream-soft transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           open
-            ? "opacity-100 pointer-events-auto translate-y-0"
-            : "opacity-0 pointer-events-none -translate-y-2"
+            ? "opacity-100 pointer-events-auto translate-x-0"
+            : "opacity-0 pointer-events-none translate-x-8"
         }`}
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 70% 20%, rgba(138,154,123,0.08), transparent 50%), radial-gradient(circle at 20% 80%, rgba(168,85,63,0.06), transparent 50%)",
+        }}
       >
-        <nav className="flex flex-col px-8 pt-12 gap-2">
+        <nav className="flex flex-col px-8 pt-28 pb-12 gap-1 h-full overflow-y-auto">
           {links.map((link, i) => {
-            const className = `font-serif text-3xl text-ink py-3 border-b border-oak/10 transition-all duration-500 ${
-              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+            const className = `font-serif text-[2.2rem] sm:text-4xl text-ink py-3.5 border-b border-oak/15 transition-all duration-700 ease-out hover:text-brick ${
+              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`;
-            const style = { transitionDelay: open ? `${i * 60}ms` : "0ms" };
+            const style = { transitionDelay: open ? `${150 + i * 50}ms` : "0ms" };
             if (link.page) {
               return (
                 <Link
@@ -177,7 +182,10 @@ export function Navigation({ locale }: { locale: Locale }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="mt-8 btn-primary w-full justify-center"
+            style={{ transitionDelay: open ? `${150 + links.length * 50 + 100}ms` : "0ms" }}
+            className={`mt-10 btn-primary w-full justify-center transition-all duration-700 ${
+              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
           >
             {t.book}
           </a>
