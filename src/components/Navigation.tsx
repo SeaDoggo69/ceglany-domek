@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { type Locale, locales, BOOKING_URL, getDictionary } from "@/lib/translations";
 
 export function Navigation({ locale }: { locale: Locale }) {
@@ -13,6 +14,11 @@ export function Navigation({ locale }: { locale: Locale }) {
 
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -133,35 +139,66 @@ export function Navigation({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      {open && (
-        <div
-          className="lg:hidden mobile-menu-overlay"
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 45,
-            background: "#faf6ee",
-            overflowY: "auto",
-            WebkitOverflowScrolling: "touch",
-            animation: "menuFadeIn 280ms ease-out",
-          }}
-          onClick={(e) => {
-            if (e.target === e.currentTarget) setOpen(false);
-          }}
-        >
-          <nav
+      {mounted &&
+        open &&
+        createPortal(
+          <div
+            className="mobile-menu-overlay"
             style={{
-              display: "flex",
-              flexDirection: "column",
-              padding: "5.5rem 2rem 2.5rem",
-              gap: "0.25rem",
-              minHeight: "100%",
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 60,
               background: "#faf6ee",
+              overflowY: "auto",
+              WebkitOverflowScrolling: "touch",
+              animation: "menuFadeIn 280ms ease-out",
+            }}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setOpen(false);
             }}
           >
+            <div
+              style={{
+                position: "absolute",
+                top: "1rem",
+                right: "1.25rem",
+                zIndex: 1,
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label={t.menuClose}
+                style={{
+                  width: "2.75rem",
+                  height: "2.75rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "#2a2620",
+                  fontSize: "1.75rem",
+                  lineHeight: 1,
+                }}
+              >
+                ×
+              </button>
+            </div>
+            <nav
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                padding: "5rem 2rem 2.5rem",
+                gap: "0.25rem",
+                minHeight: "100%",
+                background: "#faf6ee",
+              }}
+            >
             {links.map((link, i) => {
               const itemStyle: React.CSSProperties = {
                 fontFamily: "var(--font-cormorant), Georgia, serif",
@@ -222,8 +259,9 @@ export function Navigation({ locale }: { locale: Locale }) {
               {t.book}
             </a>
           </nav>
-        </div>
-      )}
+        </div>,
+          document.body,
+        )}
     </header>
   );
 }
