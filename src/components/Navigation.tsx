@@ -15,10 +15,26 @@ export function Navigation({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [menuPhase, setMenuPhase] = useState<"closed" | "entering" | "open" | "exiting">("closed");
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (open) {
+      setMenuPhase("entering");
+      const raf1 = requestAnimationFrame(() => {
+        const raf2 = requestAnimationFrame(() => setMenuPhase("open"));
+        return () => cancelAnimationFrame(raf2);
+      });
+      return () => cancelAnimationFrame(raf1);
+    }
+    if (menuPhase === "closed") return;
+    setMenuPhase("exiting");
+    const t = setTimeout(() => setMenuPhase("closed"), 420);
+    return () => clearTimeout(t);
+  }, [open, menuPhase]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -140,7 +156,7 @@ export function Navigation({ locale }: { locale: Locale }) {
       </div>
 
       {mounted &&
-        open &&
+        menuPhase !== "closed" &&
         createPortal(
           <div
             className="mobile-menu-overlay"
@@ -154,6 +170,11 @@ export function Navigation({ locale }: { locale: Locale }) {
               background: "#faf6ee",
               overflowY: "auto",
               WebkitOverflowScrolling: "touch",
+              opacity: menuPhase === "open" ? 1 : 0,
+              transform: menuPhase === "open" ? "translateX(0)" : "translateX(8%)",
+              transition:
+                "opacity 380ms cubic-bezier(0.16, 1, 0.3, 1), transform 420ms cubic-bezier(0.16, 1, 0.3, 1)",
+              willChange: "opacity, transform",
             }}
             onClick={(e) => {
               if (e.target === e.currentTarget) setOpen(false);
@@ -183,6 +204,10 @@ export function Navigation({ locale }: { locale: Locale }) {
                   color: "#2a2620",
                   fontSize: "1.75rem",
                   lineHeight: 1,
+                  opacity: menuPhase === "open" ? 1 : 0,
+                  transform: menuPhase === "open" ? "rotate(0)" : "rotate(-90deg)",
+                  transition: "opacity 320ms ease-out, transform 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+                  transitionDelay: menuPhase === "open" ? "200ms" : "0ms",
                 }}
               >
                 ×
@@ -206,9 +231,13 @@ export function Navigation({ locale }: { locale: Locale }) {
                 padding: "0.875rem 0",
                 borderBottom: "1px solid rgba(107, 74, 43, 0.15)",
                 textDecoration: "none",
-                opacity: 1,
+                opacity: menuPhase === "open" ? 1 : 0,
+                transform: menuPhase === "open" ? "translateY(0)" : "translateY(18px)",
+                transition:
+                  "opacity 480ms cubic-bezier(0.16, 1, 0.3, 1), transform 520ms cubic-bezier(0.16, 1, 0.3, 1)",
+                transitionDelay: menuPhase === "open" ? `${120 + i * 45}ms` : "0ms",
+                willChange: "opacity, transform",
               };
-              void i;
               if (link.page) {
                 return (
                   <Link
@@ -251,7 +280,12 @@ export function Navigation({ locale }: { locale: Locale }) {
                 fontSize: "0.95rem",
                 letterSpacing: "0.04em",
                 textDecoration: "none",
-                opacity: 1,
+                opacity: menuPhase === "open" ? 1 : 0,
+                transform: menuPhase === "open" ? "translateY(0) scale(1)" : "translateY(24px) scale(0.95)",
+                transition:
+                  "opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 550ms cubic-bezier(0.16, 1, 0.3, 1)",
+                transitionDelay: menuPhase === "open" ? `${120 + links.length * 45 + 80}ms` : "0ms",
+                willChange: "opacity, transform",
               }}
             >
               {t.book}
