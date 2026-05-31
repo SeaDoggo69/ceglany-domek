@@ -202,6 +202,51 @@ export default async function HistoryPage({
           </div>
         </div>
 
+        <section className="relative py-28 md:py-36 px-6 lg:px-10 bg-cream-deep/50 border-t border-oak/10">
+          <div className="mx-auto max-w-6xl">
+            <Reveal className="text-center mb-14 md:mb-18 max-w-2xl mx-auto">
+              <p className="eyebrow mb-5">{h.archiveGallery.eyebrow}</p>
+              <h2 className="font-serif text-[2.2rem] md:text-[2.8rem] leading-[1.05] tracking-tight text-ink mb-6">
+                {h.archiveGallery.title}
+              </h2>
+              <div className="section-divider mx-auto mb-6" />
+              <p className="text-ink-soft text-base md:text-lg leading-relaxed">
+                {h.archiveGallery.lead}
+              </p>
+            </Reveal>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+              {h.archiveGallery.images.map((img, i) => (
+                <figure
+                  key={img.src}
+                  className={`group ${i === 0 ? "sm:col-span-2 lg:col-span-2" : ""}`}
+                >
+                  <div
+                    className={`relative overflow-hidden rounded-sm frame ${
+                      i === 0 ? "aspect-[3/2]" : "aspect-[4/3]"
+                    }`}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.caption}
+                      fill
+                      sizes={
+                        i === 0
+                          ? "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 66vw"
+                          : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      }
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <figcaption className="mt-3 text-[0.78rem] text-ink-soft italic leading-relaxed pr-2">
+                    {img.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="relative py-28 md:py-36 px-6 lg:px-10 bg-cream border-t border-oak/10">
           <div className="mx-auto max-w-5xl">
             <Reveal className="text-center mb-16 md:mb-20 max-w-2xl mx-auto">

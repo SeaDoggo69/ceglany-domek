@@ -34,6 +34,12 @@ type HistoryContent = {
     readMore: string;
     readLess: string;
   };
+  archiveGallery: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    images: { src: string; caption: string }[];
+  };
 };
 
 export const historyContent: Record<Locale, HistoryContent> = {
@@ -63,8 +69,8 @@ export const historyContent: Record<Locale, HistoryContent> = {
           "W 1840 roku Królewski Radca Rządowy Krause, ówczesny właściciel gryżyńskiego dworu, kazał posadzić wzdłuż wiejskich dróg szesnaście tysięcy dębów. Dziś te drzewa mają niemal dwieście lat, są pod ochroną prawną i pod naszą - mieszkańców.",
           "Bez dębowych alei ciągnących się od wsi do wsi i do jeziora Gryżyna nie byłaby sobą. To one nadają tej okolicy charakter rozpoznawalny z odległości, magiczny zwłaszcza jesienią.",
         ],
-        image: "/images/9.webp",
-        imageAlt: "Widok z lotu ptaka na lasy wokół Gryżyny",
+        image: "/images/historic/historic-road-palace-1910.webp",
+        imageAlt: "Wiejska droga w Griesel, widok na pałac myśliwski, ok. 1910 r.",
       },
       {
         eyebrow: "Lata 1920-1939",
@@ -74,6 +80,8 @@ export const historyContent: Record<Locale, HistoryContent> = {
           "Jej matka, Luise von Sachsen, była postacią owianą skandalem - uciekła od króla z nauczycielem swoich dzieci, wywołując największy skandal w historii saskiego dworu. Margarete miała wtedy zaledwie dwa lata. Mimo dramatów rodzinnych Griesel pozostawał miejscem szczęśliwych wakacji.",
           "Po wojnie pałac został opuszczony. Dziś po dawnej rezydencji zostały ruiny - świadectwa świata, którego już nie ma.",
         ],
+        image: "/images/historic/historic-palace.webp",
+        imageAlt: "Pałac myśliwski w Griesel (Jagdschloß) - archiwalna pocztówka",
       },
       {
         eyebrow: "Vordermühle",
@@ -92,6 +100,8 @@ export const historyContent: Record<Locale, HistoryContent> = {
           "W okolicach Gryżyny znajdowało się w czasie wojny niemieckie lotnisko polowe Griesel. Po wojnie ślady infrastruktury zostały rozebrane, ale opowieści o tym miejscu zachowali starsi mieszkańcy.",
           "Niedaleko Gryżyny rozciąga się też Międzyrzecki Rejon Umocniony - zbudowany przez Trzecią Rzeszę najbardziej zaawansowany technicznie niemiecki system fortyfikacji, jeden z najciekawszych obiektów tego typu na świecie.",
         ],
+        image: "/images/historic/historic-blockhaus.webp",
+        imageAlt: "Blockhaus am Kalkteich - dawna gospoda nad jeziorem w Grieseltal",
       },
       {
         eyebrow: "Po 1945 roku",
@@ -127,6 +137,42 @@ export const historyContent: Record<Locale, HistoryContent> = {
       readMore: "Rozwiń",
       readLess: "Zwiń",
     },
+    archiveGallery: {
+      eyebrow: "Pocztówki i fotografie",
+      title: "Griesel na archiwalnych zdjęciach",
+      lead:
+        "Ocalałe pocztówki i fotografie sprzed 1945 roku. Pałac myśliwski, młyn nad Gryżynką, blockhaus przy jeziorze i panorama wsi z czasów, kiedy Gryżyna nazywała się Griesel.",
+      images: [
+        {
+          src: "/images/historic/historic-1922-postcard.webp",
+          caption: "Pocztówka \"Gruss aus Griesel\" z 1922 r. - widok ogólny, willa Paulusa, pałac myśliwski i kościół",
+        },
+        {
+          src: "/images/historic/historic-village-color.webp",
+          caption: "Kolorowana panorama Griesel z kościołem, początek XX w.",
+        },
+        {
+          src: "/images/historic/historic-palace-interior.webp",
+          caption: "Wnętrze pałacu myśliwskiego - sala jadalna z trofeami",
+        },
+        {
+          src: "/images/historic/historic-mill-vordermuhle.webp",
+          caption: "Vordermühle - Pierwszy Młyn w dolinie Gryżynki",
+        },
+        {
+          src: "/images/historic/historic-villa-rupnow.webp",
+          caption: "Villa Rupnow widziana od strony łąk dworskich",
+        },
+        {
+          src: "/images/historic/historic-arian-pond.webp",
+          caption: "Staw Ariański - pocztówka z lat 30. XX w.",
+        },
+        {
+          src: "/images/historic/historic-lakes-kalkteich.webp",
+          caption: "Wielki i Mały Staw Kalkteich w dolinie Gryżyńskiej",
+        },
+      ],
+    },
   },
   en: {
     meta: {
@@ -154,8 +200,8 @@ export const historyContent: Record<Locale, HistoryContent> = {
           "In 1840 the Royal Government Councillor Krause, then owner of the Gryżyna manor, ordered sixteen thousand oaks to be planted along the village roads. Today these trees are nearly two hundred years old, legally protected and protected by us, the residents.",
           "Without the oak alleys stretching from village to village and to the lake, Gryżyna would not be itself. They give this area a character recognisable from afar, magical especially in autumn.",
         ],
-        image: "/images/9.webp",
-        imageAlt: "Aerial view of the forests around Gryżyna",
+        image: "/images/historic/historic-road-palace-1910.webp",
+        imageAlt: "Village road in Griesel with view of the hunting palace, c. 1910",
       },
       {
         eyebrow: "1920s-1939",
@@ -165,6 +211,8 @@ export const historyContent: Record<Locale, HistoryContent> = {
           "Her mother, Luise von Sachsen, was a figure surrounded by scandal - she ran away from the king with her children's teacher, causing the greatest scandal in the history of the Saxon court. Margarete was only two years old at the time. Despite family dramas, Griesel remained a place of happy holidays.",
           "After the war the palace was abandoned. Today the ruins remain - testimonies to a world that is gone.",
         ],
+        image: "/images/historic/historic-palace.webp",
+        imageAlt: "Hunting palace in Griesel (Jagdschloß) - archive postcard",
       },
       {
         eyebrow: "Vordermühle",
@@ -183,6 +231,8 @@ export const historyContent: Record<Locale, HistoryContent> = {
           "Near Gryżyna there was a German field airfield called Griesel during the war. After the war the infrastructure was dismantled, but older residents have preserved stories about the place.",
           "Not far from Gryżyna stretches the Międzyrzecz Fortified Region - the most technologically advanced German fortification system built by the Third Reich, one of the most interesting facilities of this type in the world.",
         ],
+        image: "/images/historic/historic-blockhaus.webp",
+        imageAlt: "Blockhaus am Kalkteich - the former lakeside inn in Grieseltal",
       },
       {
         eyebrow: "After 1945",
@@ -217,6 +267,42 @@ export const historyContent: Record<Locale, HistoryContent> = {
       sourceNote: "Archive entry",
       readMore: "Read more",
       readLess: "Read less",
+    },
+    archiveGallery: {
+      eyebrow: "Postcards and photographs",
+      title: "Griesel in archive photos",
+      lead:
+        "Surviving postcards and photographs from before 1945. The hunting palace, the mill on the Gryżynka, the blockhouse by the lake and a panorama of the village from the times when Gryżyna was still called Griesel.",
+      images: [
+        {
+          src: "/images/historic/historic-1922-postcard.webp",
+          caption: "\"Gruss aus Griesel\" postcard from 1922 - general view, Paula's Villa, hunting palace and church",
+        },
+        {
+          src: "/images/historic/historic-village-color.webp",
+          caption: "Coloured panorama of Griesel with the church, early 20th century",
+        },
+        {
+          src: "/images/historic/historic-palace-interior.webp",
+          caption: "Interior of the hunting palace - dining room with trophies",
+        },
+        {
+          src: "/images/historic/historic-mill-vordermuhle.webp",
+          caption: "Vordermühle - the First Mill in the Gryżynka valley",
+        },
+        {
+          src: "/images/historic/historic-villa-rupnow.webp",
+          caption: "Villa Rupnow seen from the manor meadows",
+        },
+        {
+          src: "/images/historic/historic-arian-pond.webp",
+          caption: "The Arian Pond - postcard from the 1930s",
+        },
+        {
+          src: "/images/historic/historic-lakes-kalkteich.webp",
+          caption: "Great and Small Kalkteich ponds in the Gryżyna Valley",
+        },
+      ],
     },
   },
 };
