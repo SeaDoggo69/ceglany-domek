@@ -9,12 +9,12 @@ type GalleryItem = { src: string; span: string };
 
 const galleryImages: GalleryItem[] = [
   { src: "/images/1.webp", span: "row-span-2" },
-  { src: "/images/18.webp", span: "row-span-2 col-span-2" },
+  { src: "/images/18.webp", span: "row-span-2 md:col-span-2" },
   { src: "/images/15.webp", span: "row-span-2" },
   { src: "/images/3.webp", span: "row-span-2" },
-  { src: "/images/19.webp", span: "row-span-2 col-span-2" },
+  { src: "/images/19.webp", span: "row-span-2 md:col-span-2" },
   { src: "/images/22.webp", span: "row-span-2" },
-  { src: "/images/8.webp", span: "row-span-2 col-span-2" },
+  { src: "/images/8.webp", span: "row-span-2 md:col-span-2" },
   { src: "/images/17.webp", span: "row-span-2" },
   { src: "/images/27.webp", span: "row-span-2" },
 ];
@@ -82,7 +82,7 @@ export function Gallery({ locale }: { locale: Locale }) {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[120px] sm:auto-rows-[140px] md:auto-rows-[160px] lg:auto-rows-[150px] gap-3 md:gap-4">
+        <div className="grid grid-flow-dense grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[140px] sm:auto-rows-[160px] md:auto-rows-[160px] lg:auto-rows-[150px] gap-3 md:gap-4">
           {galleryImages.map((img, i) => (
             <Reveal
               key={img.src}

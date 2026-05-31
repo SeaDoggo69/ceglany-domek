@@ -48,17 +48,6 @@ export function About({ locale }: { locale: Locale }) {
           </div>
 
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            <Reveal className="lg:col-span-5 lg:order-1">
-              <span className="font-serif text-brick text-5xl leading-none block mb-4">
-                02
-              </span>
-              <h3 className="font-serif text-2xl md:text-3xl text-ink mb-4 leading-tight">
-                {locale === "pl" ? "Sypialnie i poddasze" : "Bedrooms and the attic"}
-              </h3>
-              <p className="text-ink-soft text-base md:text-lg leading-relaxed">
-                {t.paragraphs[0]}
-              </p>
-            </Reveal>
             <Reveal className="lg:col-span-7 lg:order-2 relative aspect-[4/3] overflow-hidden rounded-sm frame">
               <Image
                 src="/images/27.webp"
@@ -71,6 +60,17 @@ export function About({ locale }: { locale: Locale }) {
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover hover-grow"
               />
+            </Reveal>
+            <Reveal className="lg:col-span-5 lg:order-1">
+              <span className="font-serif text-brick text-5xl leading-none block mb-4">
+                02
+              </span>
+              <h3 className="font-serif text-2xl md:text-3xl text-ink mb-4 leading-tight">
+                {locale === "pl" ? "Sypialnie i poddasze" : "Bedrooms and the attic"}
+              </h3>
+              <p className="text-ink-soft text-base md:text-lg leading-relaxed">
+                {t.paragraphs[0]}
+              </p>
             </Reveal>
           </div>
 

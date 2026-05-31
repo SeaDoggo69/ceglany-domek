@@ -36,7 +36,7 @@ export function Hero({ locale }: { locale: Locale }) {
       </div>
 
       <div
-        className="relative z-10 h-full flex items-end pb-24 md:pb-32 px-6 lg:px-10"
+        className="relative z-10 h-full flex items-end pb-40 md:pb-36 px-6 lg:px-10"
         style={{ opacity: fade }}
       >
         <div className="mx-auto max-w-7xl w-full">
@@ -88,7 +88,7 @@ export function Hero({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 text-cream-soft/85">
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 md:gap-3 text-cream-soft/85">
         <span
           className="text-[0.65rem] uppercase tracking-[0.3em]"
           style={{ textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}
