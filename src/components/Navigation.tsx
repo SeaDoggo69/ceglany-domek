@@ -133,66 +133,97 @@ export function Navigation({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <div
-        aria-hidden={!open}
-        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ease-out ${
-          open
-            ? "opacity-100 pointer-events-auto translate-x-0 visible"
-            : "opacity-0 pointer-events-none translate-x-4 invisible"
-        }`}
-        style={{
-          backgroundColor: "#faf6ee",
-          backgroundImage:
-            "radial-gradient(circle at 70% 20%, rgba(138,154,123,0.08), transparent 50%), radial-gradient(circle at 20% 80%, rgba(168,85,63,0.06), transparent 50%)",
-          transitionProperty: "opacity, transform, visibility",
-        }}
-      >
-        <nav className="flex flex-col px-8 pt-28 pb-12 gap-1 h-full overflow-y-auto">
-          {links.map((link, i) => {
-            const className = `font-serif text-[2.2rem] sm:text-4xl text-ink py-3.5 border-b border-oak/15 transition-all duration-700 ease-out hover:text-brick ${
-              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`;
-            const style = { transitionDelay: open ? `${150 + i * 50}ms` : "0ms" };
-            if (link.page) {
+      {open && (
+        <div
+          className="lg:hidden mobile-menu-overlay"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 45,
+            background: "#faf6ee",
+            overflowY: "auto",
+            WebkitOverflowScrolling: "touch",
+            animation: "menuFadeIn 280ms ease-out",
+          }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setOpen(false);
+          }}
+        >
+          <nav
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              padding: "5.5rem 2rem 2.5rem",
+              gap: "0.25rem",
+              minHeight: "100%",
+              background: "#faf6ee",
+            }}
+          >
+            {links.map((link, i) => {
+              const itemStyle: React.CSSProperties = {
+                fontFamily: "var(--font-cormorant), Georgia, serif",
+                fontSize: "1.875rem",
+                color: "#2a2620",
+                padding: "0.875rem 0",
+                borderBottom: "1px solid rgba(107, 74, 43, 0.15)",
+                textDecoration: "none",
+                opacity: 0,
+                animation: `menuItemIn 400ms ease-out ${80 + i * 45}ms forwards`,
+              };
+              if (link.page) {
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    style={itemStyle}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              }
+              const href =
+                pathname === `/${locale}` ? link.href : `/${locale}${link.href}`;
               return (
-                <Link
+                <a
                   key={link.href}
-                  href={link.href}
+                  href={href}
                   onClick={() => setOpen(false)}
-                  style={style}
-                  className={className}
+                  style={itemStyle}
                 >
                   {link.label}
-                </Link>
+                </a>
               );
-            }
-            const href = pathname === `/${locale}` ? link.href : `/${locale}${link.href}`;
-            return (
-              <a
-                key={link.href}
-                href={href}
-                onClick={() => setOpen(false)}
-                style={style}
-                className={className}
-              >
-                {link.label}
-              </a>
-            );
-          })}
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-            style={{ transitionDelay: open ? `${150 + links.length * 50 + 100}ms` : "0ms" }}
-            className={`mt-10 btn-primary w-full justify-center transition-all duration-700 ${
-              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            {t.book}
-          </a>
-        </nav>
-      </div>
+            })}
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              style={{
+                marginTop: "2.5rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "1rem 1.5rem",
+                background: "#2a2620",
+                color: "#faf6ee",
+                borderRadius: "999px",
+                fontSize: "0.95rem",
+                letterSpacing: "0.04em",
+                textDecoration: "none",
+                opacity: 0,
+                animation: `menuItemIn 400ms ease-out ${80 + links.length * 45 + 80}ms forwards`,
+              }}
+            >
+              {t.book}
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
