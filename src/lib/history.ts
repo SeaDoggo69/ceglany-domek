@@ -26,6 +26,14 @@ type HistoryContent = {
   sections: HistorySection[];
   back: string;
   source: string;
+  archive: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    sourceNote: string;
+    readMore: string;
+    readLess: string;
+  };
 };
 
 export const historyContent: Record<Locale, HistoryContent> = {
@@ -37,9 +45,9 @@ export const historyContent: Record<Locale, HistoryContent> = {
     },
     hero: {
       eyebrow: "Historia miejsca",
-      title: "Gryżyna,\ndawne Griesel",
+      title: "Historia\nGryżyny",
       subtitle:
-        "Mała wioska w sercu Gryżyńskiego Parku Krajobrazowego, do której prowadzą wszystkie dębowe aleje świata.",
+        "Mała wioska w sercu Gryżyńskiego Parku Krajobrazowego, dawne Griesel, do której prowadzą wszystkie dębowe aleje świata.",
       quote:
         "Bo tu powietrze jak jedwab, krystaliczna woda, wiekowe bory, dziewicza przyroda. Tu odkryjesz na nowo, co odkryli starzy.",
       quoteAuthor: "Wiersz nieznanego autora, XIX w.",
@@ -110,6 +118,15 @@ export const historyContent: Record<Locale, HistoryContent> = {
     back: "Wróć na stronę główną",
     source:
       "Opracowano na podstawie archiwów Stowarzyszenia Przyjaciół Gryżyny (2013-2018) oraz wspomnień mieszkańców.",
+    archive: {
+      eyebrow: "Archiwum",
+      title: "Głosy mieszkańców",
+      lead:
+        "Wpisy z dawnego bloga Stowarzyszenia Przyjaciół Gryżyny - wspomnienia, opowieści, listy mieszkańców i opisy znikających już miejsc. Każdy tekst zachowany w oryginale, podpisany przez autora.",
+      sourceNote: "Wpis z archiwum",
+      readMore: "Rozwiń",
+      readLess: "Zwiń",
+    },
   },
   en: {
     meta: {
@@ -119,9 +136,9 @@ export const historyContent: Record<Locale, HistoryContent> = {
     },
     hero: {
       eyebrow: "History of the place",
-      title: "Gryżyna,\nformerly Griesel",
+      title: "History of\nGryżyna",
       subtitle:
-        "A small village in the heart of Gryżyna Landscape Park, to which all oak alleys of the world lead.",
+        "A small village in the heart of Gryżyna Landscape Park, formerly Griesel, to which all oak alleys of the world lead.",
       quote:
         "For here the air is like silk, the water crystal-clear, the forests ancient, the nature untouched. Here you will rediscover what the old ones discovered.",
       quoteAuthor: "Anonymous poem, 19th century",
@@ -192,5 +209,14 @@ export const historyContent: Record<Locale, HistoryContent> = {
     back: "Back to homepage",
     source:
       "Based on the archives of the Friends of Gryżyna Association (2013-2018) and residents' memoirs.",
+    archive: {
+      eyebrow: "Archive",
+      title: "Voices of the residents",
+      lead:
+        "Entries from the former blog of the Friends of Gryżyna Association - memoirs, stories, letters from residents and descriptions of places that no longer exist. Each text preserved in the original Polish, signed by its author.",
+      sourceNote: "Archive entry",
+      readMore: "Read more",
+      readLess: "Read less",
+    },
   },
 };

@@ -4,9 +4,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { type Locale, locales, getDictionary } from "@/lib/translations";
 import { historyContent } from "@/lib/history";
+import { archivePosts } from "@/lib/archive";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
+import { ArchivePost } from "@/components/ArchivePost";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -197,7 +199,38 @@ export default async function HistoryPage({
               );
             })}
 
-            <Reveal className="text-center pt-12 border-t border-oak/15">
+          </div>
+        </div>
+
+        <section className="relative py-28 md:py-36 px-6 lg:px-10 bg-cream border-t border-oak/10">
+          <div className="mx-auto max-w-5xl">
+            <Reveal className="text-center mb-16 md:mb-20 max-w-2xl mx-auto">
+              <p className="eyebrow mb-5">{h.archive.eyebrow}</p>
+              <h2 className="font-serif text-[2.4rem] md:text-[3.2rem] leading-[1.05] tracking-tight text-ink mb-6">
+                {h.archive.title}
+              </h2>
+              <div className="section-divider mx-auto mb-6" />
+              <p className="text-ink-soft text-lg leading-relaxed">{h.archive.lead}</p>
+            </Reveal>
+
+            <Reveal stagger className="space-y-8 md:space-y-10">
+              {[...archivePosts]
+                .sort((a, b) => a.date.localeCompare(b.date))
+                .map((post) => (
+                  <ArchivePost
+                    key={post.date + post.title}
+                    date={post.date}
+                    title={post.title}
+                    content={post.content}
+                    locale={loc}
+                    badge={h.archive.sourceNote}
+                    readMore={h.archive.readMore}
+                    readLess={h.archive.readLess}
+                  />
+                ))}
+            </Reveal>
+
+            <Reveal className="text-center pt-16 mt-16 border-t border-oak/15">
               <p className="text-[0.78rem] uppercase tracking-[0.18em] text-ink-soft mb-8 italic">
                 {h.source}
               </p>
@@ -218,7 +251,7 @@ export default async function HistoryPage({
               </Link>
             </Reveal>
           </div>
-        </div>
+        </section>
       </main>
 
       <Footer locale={loc} />

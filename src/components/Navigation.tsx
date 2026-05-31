@@ -34,6 +34,7 @@ export function Navigation({ locale }: { locale: Locale }) {
     { href: "#amenities", label: t.amenities },
     { href: "#gallery", label: t.gallery },
     { href: "#reviews", label: t.reviews },
+    { href: `/${locale}/historia`, label: t.history, page: true },
     { href: "#faq", label: t.faq },
     { href: "#contact", label: t.contact },
   ];
@@ -72,16 +73,23 @@ export function Navigation({ locale }: { locale: Locale }) {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`text-[0.82rem] uppercase tracking-[0.16em] link-underline transition-colors duration-500 ${textMuted}`}
-            >
-              {link.label}
-            </a>
-          ))}
+        <nav className="hidden lg:flex items-center gap-7">
+          {links.map((link) => {
+            const className = `text-[0.78rem] uppercase tracking-[0.14em] link-underline transition-colors duration-500 ${textMuted}`;
+            if (link.page) {
+              return (
+                <Link key={link.href} href={link.href} className={className}>
+                  {link.label}
+                </Link>
+              );
+            }
+            const href = pathname === `/${locale}` ? link.href : `/${locale}${link.href}`;
+            return (
+              <a key={link.href} href={href} className={className}>
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-5">
@@ -133,19 +141,37 @@ export function Navigation({ locale }: { locale: Locale }) {
         }`}
       >
         <nav className="flex flex-col px-8 pt-12 gap-2">
-          {links.map((link, i) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              style={{ transitionDelay: open ? `${i * 60}ms` : "0ms" }}
-              className={`font-serif text-3xl text-ink py-3 border-b border-oak/10 transition-all duration-500 ${
-                open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link, i) => {
+            const className = `font-serif text-3xl text-ink py-3 border-b border-oak/10 transition-all duration-500 ${
+              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+            }`;
+            const style = { transitionDelay: open ? `${i * 60}ms` : "0ms" };
+            if (link.page) {
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  style={style}
+                  className={className}
+                >
+                  {link.label}
+                </Link>
+              );
+            }
+            const href = pathname === `/${locale}` ? link.href : `/${locale}${link.href}`;
+            return (
+              <a
+                key={link.href}
+                href={href}
+                onClick={() => setOpen(false)}
+                style={style}
+                className={className}
+              >
+                {link.label}
+              </a>
+            );
+          })}
           <a
             href={BOOKING_URL}
             target="_blank"
