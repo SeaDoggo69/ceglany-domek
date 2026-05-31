@@ -111,72 +111,6 @@ Schemat „taranu hydraulicznego”
 [nggallery id=6]`,
   },
   {
-    date: "2013-04-07",
-    title: "Wesele w Gryżynie, 1948 (1949?) rok",
-    content: `Zdjęcie z szuflady Pani Aliny Majko z domu Tatarynowicz
-
- 
-
-Jest rok 1948 albo 1949. Ślub biorą Regina Baran i Leon Wychowałek. Obok Panny Młodej stoi nastoletnia Alina, koło niej jej bratowa, Regina Raczkowska. Ciemnowłosa dziewczyna stojąca obok Pana Młodego to Helena Kudera.
-
-Regina mieszkała wtedy z rodzicami w domu z czerwonej cegły, który przylegał do willi Rupnowa. Leon w Gryżynie nie mieszkał, przyjeżdżał tutaj do wujostwa i tak właśnie poznał swoją przyszłą żonę. Ciotka Leona, Pani Wychowałek, stoi pierwsza z lewej w drugim rzędzie; jej mąż siedzi między muzykami i nalewa klarneciście wódkę do kieliszka.
-
-Powyżej pani  Wychowałek, obok  małego chłopca, stoi brat  Aliny Bronek Tatarynowicz, który parę lat później utopi się w gryżyńskim jeziorze …
-
-Muzycy są spoza Gryżyny, ale skąd – pani Alina nie pamięta.
-
-Weselnicy stoją przed willą Rupnowa, przy wejściu, które znajdowało się od strony dzisiejszego sklepu. Drugie jak wiemy było od strony fontanny. Oba wejścia połączone były wewnątrz długim korytarzem, przedzielonym w połowie wysokimi, przeszklonymi drzwiami. Wchodząc do willi od strony ogrodu po prawej stronie była duża sala, w której odbywało się wesele; za przeszklonymi drzwiami po obu stronach korytarza były pokoje. Willa jak widać na zdjęciu była już wtedy w kiepskim stanie. Podłoga w dużej sali, z szerokich dębowych desek, zachowana była jednak dobrze.
-
-Wesele było huczne i trwało do rana!`,
-  },
-  {
-    date: "2013-04-13",
-    title: "Moi Rodzice (pisze Pani Bożena)",
-    content: `To są zdjęcia moich pięknych i kochanych rodziców. Tak wyglądali kiedy byli młodzi. Pierwsze zdjęcie ("portretowe") zostało zrobione w 1946r w Świebodzinie.  Drugie, obok uli - w pasiece, która była pasją i miłością mojego ojca.
-Moi rodzice przyjechali do Gryżyny latem 1945r z okolic Lublina. Pochodzili z tej samej miejscowości. Razem z nimi przyjechali rodzice mojej mamy - Magdalena i Adam Czerniakowie oraz jej rodzeństwo  - Mieczysław, Regina i Feliks. Najstarszy z braci mojej mamy, Stanisław, zginął na wojnie. Siostra Zosia, którą Niemcy wywieźli na roboty ma teraz ok 87 lat i mieszka w Anglii. 
-
-Rodzice z dziadkami zamieszkali najpierw w domu, w którym później mieszkali Pacholczykowie, następnie przenieśli się do domu, którego dzisiaj już nie ma, a znajdował się między domem Bieleńskich i Kasowskich. Dziadkowie zajmowali się uprawą roli, moi rodzice na początku im w tym również pomagali. Później rodzice przeprowadzili się do naszego rodzinnego domu na początku wsi. Następnie tata rozpoczął pracę w nadleśnictwie jako podleśniczy, gajowy oraz pracownik biurowy. Tata przez długie lata był ławnikiem w Sądzie Rejonowym w Krośnie Odrz. oraz rachmistrzem, który dokonywał powszechnego spisu ludności. Jednak największą jego pasją było pszczelarstwo. Mama dzieliła z nim tą pasję oraz wychowywała dzieci i zajmowała się domem. W Gryżynie przyszły na świat wszystkie ich dzieci (5) oraz w większość ich wnuków (4). Przeżyli ze sobą 53 lata.
-
-Pozdrawiam, Bożena O.
-
-Zdjęcie moich dziadków zrobione w dniu Pierwszej Komunii mojej siostry Marianny`,
-  },
-  {
-    date: "2013-05-14",
-    title: "Gryżyna 14. Powojenna historia jednego domu.",
-    content: `Dom położony jest w lekkim zagłębieniu, nieco niżej od głównej drogi, przez co wydaje się być jeszcze bardziej przysadzisty niż jest. Przycupnięty pomiędzy trzema stodołami a strumykiem, do którego można zbiec po stromym zboczu. Tutaj bije jedno ze źródeł  rzeczki Gryżynki, w tym wąwozie wszystko się zaczyna. Kiedyś na jego stokach były ogrody warzywne otoczone drewnianymi płotami. Zmeliorowana rzeczka nie zagrażała uprawom a ziemia w tym miejscu była bardziej żyzna niż gdziekolwiek. Dziś rosną tam krzaki porzeczek, gdzieniegdzie można znaleźć resztki ogrodzenia. Cała dolina jest zarośnięta drzewami i krzakami, ptasi raj.
-
-Maria i Feliks Koper, przyjechali do Gryżyny w 1947, albo rok później, z kieleckiego. Gospodarstwo, na którym został najstarszy syn było nieduże, dookoła powojenna bieda, a na ziemiach zachodnich miało być lepiej, dostatniej. Feliks był już dobrze po pięćdziesiątce; Maria była od niego młodsza o 9 lat. Razem z nimi przyjechała córka Helena, a niedługo później syn Stefan ze swoją młodą żoną Barbarą. Dom, w którym zamieszkali, sam w sobie dość skromny, był bardzo zniszczony przez rosyjskie wojska. Dlaczego jego właśnie wybrali? Pewnie z powodu tych trzech stodół, dużych i w dobrym stanie. Kto miał gdzie trzymać zwierzęta , mógł być spokojniejszy o los swojej rodziny.  Feliks i  jego syn uprawiali ziemię, hodowali krowy, świnie, trochę kur i gęsi – wszystkiego po trochu. Cała rodzina mieszkała razem, w Gryżynie pod numerem 14. Młodemu małżeństwu, Stefanowi i Barbarze, wkrótce urodziła się córeczka Zosia, a potem jeszcze dwóch chłopców, Andrzej i Jerzy. Dzieci urodziły się w tym domu. Domowy poród, luksus w dzisiejszych czasach, w powojennej Gryżynie był normą. Akuszerką była Pani Tatarynowicz.
-
- Zosia i Andrzej z dziadkiem Feliksem Koper przed domem od strony ulicy
-
-Stefan był rolnikiem a zimą szył, a raczej przerabiał ubrania dla swojej rodziny i dla mieszkańców wioski. Zimą jeździł z sąsiadem Matrasem saniami do lasu, dokarmiać zwierzynę leśną.
-
-Do domu wchodziło się po schodkach przez  drewniany ganek, do niewielkiego korytarzyka. Na wprost była kuchnia z białym glinianym piecem chlebowym, który postawił Stefan. Basia piekła w nim chleb, suszyła grzyby i owoce.  Do kuchni  można było zajrzeć  przez malutkie okienko, wychodzące  na korytarz. Z kuchni stromymi schodami schodziło się do łukowo sklepionej niewielkiej piwnicy. Po prawej stronie korytarza  był nieogrzewany pokój. Życie rodzinne toczyło się w dużym pokoju, na lewo od wejścia.  Tam, przy kaflowym piecu, ojciec szył i przerabiał ubrania, mama robiła na drutach, dzieciaki odrabiały lekcje. Odbywały się tu też spotkania rady sołeckiej, od kiedy Stefan został sołtysem. Mieszkańcy wsi pamiętają je dobrze, a zwłaszcza ten ciepły, duży pokój. Przylegała do niego sypialnia a do niej jeszcze mniejsza spiżarnia, z małym okienkiem umieszczonym wysoko. Czasem trzymało się tam jabłka. Ściany domu od wschodu porośnięte były słodkimi winogronami; można je było rwać wystawiając rękę przez okno.
-
- Barbara i Stefan Koper z córeczką Zosią przed gankiem
-
-Naprzeciwko, płot w płot, za stodołami, mieszkali sąsiedzi Raczkowscy a po drugiej stronie ulicy Matrasowie.
-
-Dzieci chodziły do szkoły w Gryżynie, która zorganizowana była w budynku dzisiejszej Oazy. Nauczycielem był pan Berus, którego uczniowie wspominają jak najlepiej – organizował dla nich wyjazdy do Poznania, Szczecina;   to była wielka rzecz dla dzieciaków w tamtym czasie. Gryżyńska szkoła miała tylko cztery klasy, potem trzeba było dojeżdżać do podstawówki w Bytnicy. Dzieci wożono starem krytym plandeką, na którego trzeba było długo czekać. Zdarzało się, że star nie przyjeżdżał wcale i wtedy dzieci, szczęśliwe, wracały z powrotem do domów.  Po jakimś czasie rodzice wystarali się o autobus, a przystanek ustawiono  naprzeciwko domu-sklepu Pileckich, koło krzyża.  Po skończeniu podstawówki  najstarsza Koprówna , Zosia, zdała egzamin do LO w Rzepinie. Mieszkała w internacie a domu przyjeżdżała raz w miesiącu; były to tak zwane niedziele wyjazdowe.
-
- Gryżyńska klasa z nauczycielem Kazimierzem Berusem
-
-Po szkole dzieci pomagały w gospodarstwie. Pasły krowy, chodziły z rodzicami w pole pomagać przy żniwach czy kopaniu kartofli. Jesienią, jak wszyscy, chodziły na grzyby. Kurki oddawano do skupu u pana Bućko, a prawdziwki suszyło się w piecach chlebowych.
-
-Pierwsza umarła babcia Maria, w 1959 roku. Pięć lat po niej umarł Feliks. Oboje pochowani  są na Gryżyńskim cmentarzu. W 1968 Stefan z żoną i trójką dzieci kupił w kieleckiem gospodarstwo i wjechał z Gryżyny.
-
-W domu pod numerem 14 została Helena, już mężatka. Od tej pory zaczyna się w nim historia rodziny Furtasów.
-
-Od lewej: Helena Furtas z mezem Janem, p. Paliwoda oraz Kazimierz Furtas
-
-Komunia Andrzeja. Od lewej:Zosia Koper, Pani  Regina Janiak, Rodzice, brat Jerzy i Andrzej
-
-Komunie w Toporowie
-
-P.S. Zdjęcia i wspomnienia zawdzięczamy Pani Zofii Zabojszcza z domu Koper. Cdn ...`,
-  },
-  {
     date: "2013-06-05",
     title: "\"Gryżyna to tajemnica i zapachy\"",
     content: `Te piękne wspomnienia przysłała Pani Danuta Hołdakowska-Kurek:
@@ -296,22 +230,6 @@ Więc zapraszamy już teraz na zapowiedziane przez Danusię spotkanie na okolicz
 Do zobaczenia !
 
 p.s. Podziękowania należą się także tym , którzy pomagali podczas przygotowań sali i Pawłowi za jej użyczenie . Dziękujemy !`,
-  },
-  {
-    date: "2013-07-23",
-    title: "Pierwszy młyn, pierwszy młynarz (zdjęcia od Pani Niny)",
-    content: `Wspomina Pani Nina:
-
-"Pierwszym młynarzem w 1945r „Vordermuhle” był mój dziadek Jan Sokołowski. W 1945 roku po objęciu młyna przez mojego dziadka prezentował się on (i otoczenie) okazale i pięknie. We wspomnieniach babci i dziadka Gryżyna zajmowała szczególne bardzo ważne miejsce.W tym młynie odbyło się wesele moich rodziców Kazimiery Sokołowskiej (najstarszej córki Jana i Michaliny Sokołowskich) ze Zdzisławem Wareckim. Był to pierwszy (lub jeden z pierwszych) ślubów w powojennej Gryżynie w listopadzie w 1945r.
-
-Zdjęcie przedstawia moich rodziców (nowożeńców) na tle głównego wejścia do budynku mieszkalnego, oraz gości weselnych przy wejściu bocznym.
-
-Oto pocztówka z niewysłanymi pozdrowieniami z Gryżyny z 1937r. Ta sama kartka widnieje pod opowieściami Pani Eli Jedrzejek. Przedstawia ona staw przed młynem z altaną, (nic mi nie wiadomo o wylegarni kaczek mojej babci, przynajmniej nikt nigdy z rodziny nie przekazywał takiej informacji) i nigdy nie nazywano tej altany „kaczym domkiem”. Pływało się po stawie łódką i altana była takim rekreacyjnym domkiem do spotkań towarzyskich i rodzinnych, bo podobno w tamtych czasach do młyna moich dziadków przyjeżdżało dużo gości".`,
-  },
-  {
-    date: "2013-11-11",
-    title: "Lotnisko w Griesel",
-    content: `Ten artykuł  przysłał nam Pan Kazimierz Berus, powojenny nauczyciel w Gryżyńskiej szkole. Bardzo dziękujemy!`,
   },
   {
     date: "2013-02-17",
