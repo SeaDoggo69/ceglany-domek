@@ -135,14 +135,16 @@ export function Navigation({ locale }: { locale: Locale }) {
 
       <div
         aria-hidden={!open}
-        className={`lg:hidden fixed inset-0 z-40 bg-cream-soft transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ease-out ${
           open
-            ? "opacity-100 pointer-events-auto translate-x-0"
-            : "opacity-0 pointer-events-none translate-x-8"
+            ? "opacity-100 pointer-events-auto translate-x-0 visible"
+            : "opacity-0 pointer-events-none translate-x-4 invisible"
         }`}
         style={{
+          backgroundColor: "#faf6ee",
           backgroundImage:
             "radial-gradient(circle at 70% 20%, rgba(138,154,123,0.08), transparent 50%), radial-gradient(circle at 20% 80%, rgba(168,85,63,0.06), transparent 50%)",
+          transitionProperty: "opacity, transform, visibility",
         }}
       >
         <nav className="flex flex-col px-8 pt-28 pb-12 gap-1 h-full overflow-y-auto">
