@@ -154,12 +154,17 @@ export function Navigation({ locale }: { locale: Locale }) {
               background: "#faf6ee",
               overflowY: "auto",
               WebkitOverflowScrolling: "touch",
-              animation: "menuFadeIn 280ms ease-out",
             }}
             onClick={(e) => {
               if (e.target === e.currentTarget) setOpen(false);
             }}
           >
+            <style>{`
+              @keyframes mmFade { from { opacity: 0; } to { opacity: 1; } }
+              @keyframes mmSlide { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+              .mobile-menu-overlay { animation: mmFade 280ms ease-out; }
+              .mobile-menu-overlay a, .mobile-menu-overlay button.mm-cta { opacity: 0; animation: mmSlide 400ms ease-out forwards; }
+            `}</style>
             <div
               style={{
                 position: "absolute",
@@ -207,8 +212,7 @@ export function Navigation({ locale }: { locale: Locale }) {
                 padding: "0.875rem 0",
                 borderBottom: "1px solid rgba(107, 74, 43, 0.15)",
                 textDecoration: "none",
-                opacity: 0,
-                animation: `menuItemIn 400ms ease-out ${80 + i * 45}ms forwards`,
+                animationDelay: `${80 + i * 45}ms`,
               };
               if (link.page) {
                 return (
@@ -252,8 +256,7 @@ export function Navigation({ locale }: { locale: Locale }) {
                 fontSize: "0.95rem",
                 letterSpacing: "0.04em",
                 textDecoration: "none",
-                opacity: 0,
-                animation: `menuItemIn 400ms ease-out ${80 + links.length * 45 + 80}ms forwards`,
+                animationDelay: `${80 + links.length * 45 + 80}ms`,
               }}
             >
               {t.book}
