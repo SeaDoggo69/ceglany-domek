@@ -82,8 +82,8 @@ export const historyContent: Record<Locale, HistoryContent> = {
           "Vordermühle - czyli Pierwszy Młyn - stał nad potokiem Gryżynką od kilku stuleci. W okolicy działało kilka młynów wodnych, ale ten miał swoją tragiczną historię. Powojenny nauczyciel Kazimierz Berus zapisał ją w opowiadaniu \"Kamienie mówią\", o zabitym młynarzu, którego pamięć żyje w gryżyńskich kamieniach do dziś.",
           "Po młynach pozostały ruiny i fundamenty, które można zobaczyć podczas wędrówki wzdłuż potoku. To jedne z najbardziej klimatycznych miejsc w okolicy.",
         ],
-        image: "/images/18.webp",
-        imageAlt: "Bukowe wąwozy w dolinie potoku Gryżynka",
+        image: "/images/postcard-griesel.webp",
+        imageAlt: "Pocztówka \"Gruß aus Griesel\" - przedwojenne widoki Gryżyny z kościołem, młynem i pałacem",
       },
       {
         eyebrow: "II wojna światowa",
@@ -173,8 +173,8 @@ export const historyContent: Record<Locale, HistoryContent> = {
           "Vordermühle - the First Mill - stood on the Gryżynka stream for several centuries. Several water mills operated in the area, but this one had its own tragic story. Post-war teacher Kazimierz Berus recorded it in his story \"Stones Speak\", about a murdered miller whose memory still lives in the stones of Gryżyna.",
           "Ruins and foundations remain of the mills, visible when walking along the stream. These are some of the most atmospheric places in the area.",
         ],
-        image: "/images/18.webp",
-        imageAlt: "Beech ravines in the Gryżynka stream valley",
+        image: "/images/postcard-griesel.webp",
+        imageAlt: "\"Gruß aus Griesel\" postcard - pre-war views of Gryżyna with the church, mill and palace",
       },
       {
         eyebrow: "World War II",
