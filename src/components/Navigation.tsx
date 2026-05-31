@@ -24,17 +24,13 @@ export function Navigation({ locale }: { locale: Locale }) {
   useEffect(() => {
     if (open) {
       setMenuPhase("entering");
-      const raf1 = requestAnimationFrame(() => {
-        const raf2 = requestAnimationFrame(() => setMenuPhase("open"));
-        return () => cancelAnimationFrame(raf2);
-      });
-      return () => cancelAnimationFrame(raf1);
+      const id = window.setTimeout(() => setMenuPhase("open"), 20);
+      return () => window.clearTimeout(id);
     }
-    if (menuPhase === "closed") return;
-    setMenuPhase("exiting");
-    const t = setTimeout(() => setMenuPhase("closed"), 420);
-    return () => clearTimeout(t);
-  }, [open, menuPhase]);
+    setMenuPhase((prev) => (prev === "closed" ? "closed" : "exiting"));
+    const t = window.setTimeout(() => setMenuPhase("closed"), 320);
+    return () => window.clearTimeout(t);
+  }, [open]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
