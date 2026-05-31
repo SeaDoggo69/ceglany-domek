@@ -53,19 +53,19 @@ export function Navigation({ locale }: { locale: Locale }) {
           : "bg-gradient-to-b from-ink/40 to-transparent py-5"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between gap-6">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-between gap-4">
         <Link
           href={`/${locale}`}
-          className="flex items-baseline gap-2 group"
+          className="flex items-baseline gap-2 group flex-shrink-0 whitespace-nowrap"
           onClick={() => setOpen(false)}
         >
           <span
-            className={`font-serif text-2xl md:text-[1.7rem] tracking-tight leading-none transition-colors duration-500 ${textBase}`}
+            className={`font-serif text-xl md:text-[1.5rem] lg:text-[1.6rem] tracking-tight leading-none whitespace-nowrap transition-colors duration-500 ${textBase}`}
           >
             Ceglany Domek
           </span>
           <span
-            className={`hidden sm:inline text-[0.7rem] uppercase tracking-[0.22em] transition-colors duration-500 ${
+            className={`hidden xl:inline text-[0.65rem] uppercase tracking-[0.22em] whitespace-nowrap transition-colors duration-500 ${
               onTop ? "text-sage-soft" : "text-sage-deep"
             }`}
           >
@@ -73,9 +73,9 @@ export function Navigation({ locale }: { locale: Locale }) {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 flex-shrink min-w-0">
           {links.map((link) => {
-            const className = `text-[0.78rem] uppercase tracking-[0.14em] link-underline transition-colors duration-500 ${textMuted}`;
+            const className = `text-[0.72rem] xl:text-[0.78rem] uppercase tracking-[0.14em] whitespace-nowrap link-underline transition-colors duration-500 ${textMuted}`;
             if (link.page) {
               return (
                 <Link key={link.href} href={link.href} className={className}>
@@ -92,11 +92,11 @@ export function Navigation({ locale }: { locale: Locale }) {
           })}
         </nav>
 
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-4 lg:gap-5 flex-shrink-0">
           <Link
             href={otherPath}
             aria-label={`Switch language to ${otherLocale.toUpperCase()}`}
-            className={`link-underline text-[0.78rem] uppercase tracking-[0.22em] font-medium transition-colors duration-500 ${textMuted}`}
+            className={`link-underline text-[0.72rem] uppercase tracking-[0.22em] font-medium whitespace-nowrap transition-colors duration-500 ${textMuted}`}
           >
             {otherLocale.toUpperCase()}
           </Link>
@@ -105,7 +105,7 @@ export function Navigation({ locale }: { locale: Locale }) {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`btn-primary !py-2.5 !px-5 !text-[0.8rem] ${
+              className={`btn-primary !py-2 !px-4 !text-[0.75rem] whitespace-nowrap ${
                 onTop ? "!bg-cream-soft !text-ink hover:!bg-brick hover:!text-cream-soft" : ""
               }`}
             >

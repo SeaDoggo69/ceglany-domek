@@ -213,7 +213,7 @@ export default async function HistoryPage({
               <p className="text-ink-soft text-lg leading-relaxed">{h.archive.lead}</p>
             </Reveal>
 
-            <Reveal stagger className="space-y-8 md:space-y-10">
+            <div className="space-y-8 md:space-y-10">
               {[...archivePosts]
                 .sort((a, b) => a.date.localeCompare(b.date))
                 .map((post) => (
@@ -228,7 +228,7 @@ export default async function HistoryPage({
                     readLess={h.archive.readLess}
                   />
                 ))}
-            </Reveal>
+            </div>
 
             <Reveal className="text-center pt-16 mt-16 border-t border-oak/15">
               <p className="text-[0.78rem] uppercase tracking-[0.18em] text-ink-soft mb-8 italic">
