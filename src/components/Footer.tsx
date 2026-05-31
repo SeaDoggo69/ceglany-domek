@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { type Locale, BOOKING_URL, CONTACT, getDictionary } from "@/lib/translations";
 
 export function Footer({ locale }: { locale: Locale }) {
@@ -26,6 +27,11 @@ export function Footer({ locale }: { locale: Locale }) {
               </li>
               <li>
                 <a href="#gallery" className="link-underline">{nav.gallery}</a>
+              </li>
+              <li>
+                <Link href={`/${locale}/historia`} className="link-underline">
+                  {nav.history}
+                </Link>
               </li>
               <li>
                 <a href="#contact" className="link-underline">{nav.contact}</a>
