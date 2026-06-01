@@ -74,9 +74,9 @@ export function BlogEntry({
         {/* Image */}
         {post.image && (
           <figure
-            className={`lg:col-span-5 relative ${reverse ? "lg:order-2" : ""}`}
+            className={`lg:col-span-5 flex flex-col overflow-hidden ${reverse ? "lg:order-2" : ""}`}
           >
-            <div className="relative aspect-[4/3] lg:h-full lg:min-h-[340px]">
+            <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:flex-1 lg:min-h-[360px]">
               <Image
                 src={post.image}
                 alt={post.imageCaption}
