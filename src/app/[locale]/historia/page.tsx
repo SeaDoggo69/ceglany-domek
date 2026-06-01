@@ -4,11 +4,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { type Locale, locales, getDictionary } from "@/lib/translations";
 import { historyContent } from "@/lib/history";
-import { archivePosts } from "@/lib/archive";
+import { blogPosts } from "@/lib/blog";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
-import { ArchivePost } from "@/components/ArchivePost";
+import { BlogEntry } from "@/components/BlogEntry";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -248,7 +248,7 @@ export default async function HistoryPage({
         </section>
 
         <section className="relative py-28 md:py-36 px-6 lg:px-10 bg-cream border-t border-oak/10">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-6xl">
             <Reveal className="text-center mb-16 md:mb-20 max-w-2xl mx-auto">
               <p className="eyebrow mb-5">{h.archive.eyebrow}</p>
               <h2 className="font-serif text-[2.4rem] md:text-[3.2rem] leading-[1.05] tracking-tight text-ink mb-6">
@@ -258,21 +258,17 @@ export default async function HistoryPage({
               <p className="text-ink-soft text-lg leading-relaxed">{h.archive.lead}</p>
             </Reveal>
 
-            <div className="space-y-8 md:space-y-10">
-              {[...archivePosts]
-                .sort((a, b) => a.date.localeCompare(b.date))
-                .map((post) => (
-                  <ArchivePost
-                    key={post.date + post.title}
-                    date={post.date}
-                    title={post.title}
-                    content={post.content}
+            <div className="space-y-10 md:space-y-14">
+              {blogPosts.map((post, i) => (
+                <Reveal key={post.title}>
+                  <BlogEntry
+                    post={post}
                     locale={loc}
-                    badge={h.archive.sourceNote}
-                    readMore={h.archive.readMore}
-                    readLess={h.archive.readLess}
+                    t={h.archive}
+                    reverse={i % 2 === 1}
                   />
-                ))}
+                </Reveal>
+              ))}
             </div>
 
             <Reveal className="text-center pt-16 mt-16 border-t border-oak/15">

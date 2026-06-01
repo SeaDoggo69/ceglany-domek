@@ -33,6 +33,11 @@ type HistoryContent = {
     sourceNote: string;
     readMore: string;
     readLess: string;
+    commentsShow: string;
+    commentsHide: string;
+    commentsSingular: string;
+    commentsFew: string;
+    commentsMany: string;
   };
   archiveGallery: {
     eyebrow: string;
@@ -129,13 +134,18 @@ export const historyContent: Record<Locale, HistoryContent> = {
     source:
       "Opracowano na podstawie archiwów Stowarzyszenia Przyjaciół Gryżyny (2013-2018) oraz wspomnień mieszkańców.",
     archive: {
-      eyebrow: "Archiwum",
+      eyebrow: "Archiwum bloga",
       title: "Głosy mieszkańców",
       lead:
-        "Wpisy z dawnego bloga Stowarzyszenia Przyjaciół Gryżyny - wspomnienia, opowieści, listy mieszkańców i opisy znikających już miejsc. Każdy tekst zachowany w oryginale, podpisany przez autora.",
+        "Wpisy z dawnego bloga Stowarzyszenia Przyjaciół Gryżyny (2013-2018) odtworzone tak, jak były - wraz z komentarzami, w których mieszkańcy dzielili się swoimi wspomnieniami. To właśnie te rozmowy są najcenniejsze.",
       sourceNote: "Wpis z archiwum",
-      readMore: "Rozwiń",
-      readLess: "Zwiń",
+      readMore: "Czytaj cały wpis",
+      readLess: "Zwiń wpis",
+      commentsShow: "Pokaż komentarze",
+      commentsHide: "Ukryj komentarze",
+      commentsSingular: "komentarz",
+      commentsFew: "komentarze",
+      commentsMany: "komentarzy",
     },
     archiveGallery: {
       eyebrow: "Pocztówki i fotografie",
@@ -260,13 +270,18 @@ export const historyContent: Record<Locale, HistoryContent> = {
     source:
       "Based on the archives of the Friends of Gryżyna Association (2013-2018) and residents' memoirs.",
     archive: {
-      eyebrow: "Archive",
+      eyebrow: "Blog archive",
       title: "Voices of the residents",
       lead:
-        "Entries from the former blog of the Friends of Gryżyna Association - memoirs, stories, letters from residents and descriptions of places that no longer exist. Each text preserved in the original Polish, signed by its author.",
+        "Entries from the former blog of the Friends of Gryżyna Association (2013-2018), recreated as they were - together with the comments in which residents shared their memories. Those conversations are the most precious part. (Posts and comments in original Polish.)",
       sourceNote: "Archive entry",
-      readMore: "Read more",
-      readLess: "Read less",
+      readMore: "Read full post",
+      readLess: "Collapse post",
+      commentsShow: "Show comments",
+      commentsHide: "Hide comments",
+      commentsSingular: "comment",
+      commentsFew: "comments",
+      commentsMany: "comments",
     },
     archiveGallery: {
       eyebrow: "Postcards and photographs",
