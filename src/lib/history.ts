@@ -38,6 +38,9 @@ type HistoryContent = {
     commentsSingular: string;
     commentsFew: string;
     commentsMany: string;
+    authorLabel: string;
+    publishedLabel: string;
+    memoriesLabel: string;
   };
   archiveGallery: {
     eyebrow: string;
@@ -146,6 +149,9 @@ export const historyContent: Record<Locale, HistoryContent> = {
       commentsSingular: "komentarz",
       commentsFew: "komentarze",
       commentsMany: "komentarzy",
+      authorLabel: "Autor wpisu",
+      publishedLabel: "Opublikowano",
+      memoriesLabel: "wspomnień gości",
     },
     archiveGallery: {
       eyebrow: "Pocztówki i fotografie",
@@ -282,6 +288,9 @@ export const historyContent: Record<Locale, HistoryContent> = {
       commentsSingular: "comment",
       commentsFew: "comments",
       commentsMany: "comments",
+      authorLabel: "Post author",
+      publishedLabel: "Published",
+      memoriesLabel: "shared memories",
     },
     archiveGallery: {
       eyebrow: "Postcards and photographs",

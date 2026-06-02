@@ -43,6 +43,9 @@ type ArchiveT = {
   commentsSingular: string;
   commentsFew: string;
   commentsMany: string;
+  authorLabel: string;
+  publishedLabel: string;
+  memoriesLabel: string;
 };
 
 const POST_PREVIEW = 420;
@@ -71,24 +74,84 @@ export function BlogEntry({
   return (
     <article className="bg-cream rounded-sm frame overflow-hidden">
       <div className="grid lg:grid-cols-12 lg:items-start">
-        {/* Image */}
+        {/* Image + meta card */}
         {post.image && (
-          <figure
-            className={`lg:col-span-5 flex flex-col overflow-hidden lg:sticky lg:top-24 ${reverse ? "lg:order-2" : ""}`}
+          <div
+            className={`lg:col-span-5 lg:sticky lg:top-24 ${reverse ? "lg:order-2" : ""}`}
           >
-            <div className="relative w-full aspect-[4/3]">
-              <Image
-                src={post.image}
-                alt={post.imageCaption}
-                fill
-                sizes="(max-width: 1024px) 100vw, 42vw"
-                className="object-cover"
-              />
+            <figure className="flex flex-col overflow-hidden">
+              <div className="relative w-full aspect-[4/3]">
+                <Image
+                  src={post.image}
+                  alt={post.imageCaption}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="px-5 py-3 text-[0.72rem] text-ink-soft italic leading-snug bg-cream-deep/40">
+                {post.imageCaption}
+              </figcaption>
+            </figure>
+
+            {/* Meta card — fills the space beside expanded comments */}
+            <div
+              className={`hidden lg:block px-8 pt-7 pb-8 transition-opacity duration-500 ${
+                showComments ? "opacity-100" : "opacity-100"
+              }`}
+            >
+              <div className="border-t border-oak/15 pt-7 space-y-5">
+                <div>
+                  <p className="text-[0.62rem] uppercase tracking-[0.22em] text-sage-deep mb-1.5">
+                    {t.authorLabel}
+                  </p>
+                  <p className="font-serif text-xl text-ink leading-tight">
+                    {post.author}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-6 text-ink-soft">
+                  <div>
+                    <p className="text-[0.62rem] uppercase tracking-[0.22em] text-sage-deep mb-1">
+                      {t.publishedLabel}
+                    </p>
+                    <p className="text-sm">{formatDate(post.date, locale)}</p>
+                  </div>
+                  {post.comments.length > 0 && (
+                    <div>
+                      <p className="font-serif text-3xl text-brick leading-none">
+                        {post.comments.length}
+                      </p>
+                      <p className="text-[0.68rem] uppercase tracking-[0.12em] text-ink-soft mt-1">
+                        {t.memoriesLabel}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {post.pullQuote && (
+                  <figure className="pt-2">
+                    <svg
+                      width="28"
+                      height="22"
+                      viewBox="0 0 36 28"
+                      fill="currentColor"
+                      aria-hidden
+                      className="text-brick/30 mb-2"
+                    >
+                      <path d="M0 28V16C0 7.163 7.163 0 16 0v6c-5.523 0-10 4.477-10 10h6v12H0zm20 0V16C20 7.163 27.163 0 36 0v6c-5.523 0-10 4.477-10 10h6v12H20z" />
+                    </svg>
+                    <blockquote className="font-serif text-[1.05rem] italic leading-relaxed text-ink">
+                      {post.pullQuote}
+                    </blockquote>
+                    <figcaption className="mt-2 text-[0.72rem] uppercase tracking-[0.14em] text-sage-deep">
+                      — {post.pullQuoteAuthor}
+                    </figcaption>
+                  </figure>
+                )}
+              </div>
             </div>
-            <figcaption className="px-5 py-3 text-[0.72rem] text-ink-soft italic leading-snug bg-cream-deep/40">
-              {post.imageCaption}
-            </figcaption>
-          </figure>
+          </div>
         )}
 
         {/* Text */}
