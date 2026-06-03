@@ -84,7 +84,7 @@ export function Navigation({ locale }: { locale: Locale }) {
             Ceglany Domek
           </span>
           <span
-            className={`hidden xl:inline text-[0.65rem] uppercase tracking-[0.22em] whitespace-nowrap transition-colors duration-500 ${
+            className={`hidden 2xl:inline text-[0.65rem] uppercase tracking-[0.22em] whitespace-nowrap transition-colors duration-500 ${
               onTop ? "text-sage-soft" : "text-sage-deep"
             }`}
           >
@@ -92,9 +92,9 @@ export function Navigation({ locale }: { locale: Locale }) {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 flex-shrink min-w-0">
+        <nav className="hidden xl:flex items-center gap-4 2xl:gap-6 flex-shrink min-w-0">
           {links.map((link) => {
-            const className = `text-[0.72rem] xl:text-[0.78rem] uppercase tracking-[0.14em] whitespace-nowrap link-underline transition-colors duration-500 ${textMuted}`;
+            const className = `text-[0.72rem] 2xl:text-[0.76rem] uppercase tracking-[0.12em] whitespace-nowrap link-underline transition-colors duration-500 ${textMuted}`;
             if (link.page) {
               return (
                 <Link key={link.href} href={link.href} className={className}>
@@ -111,7 +111,7 @@ export function Navigation({ locale }: { locale: Locale }) {
           })}
         </nav>
 
-        <div className="flex items-center gap-4 lg:gap-5 flex-shrink-0">
+        <div className="flex items-center gap-3 xl:gap-4 flex-shrink-0">
           <Link
             href={otherPath}
             aria-label={`Switch language to ${otherLocale.toUpperCase()}`}
@@ -136,7 +136,7 @@ export function Navigation({ locale }: { locale: Locale }) {
             aria-label={open ? t.menuClose : t.menuOpen}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className={`lg:hidden relative w-9 h-9 flex flex-col items-center justify-center gap-1.5 transition-colors duration-500 ${textBase}`}
+            className={`xl:hidden relative w-9 h-9 flex flex-col items-center justify-center gap-1.5 transition-colors duration-500 ${textBase}`}
           >
             <span
               className={`block w-5 h-px bg-current transition-transform duration-300 ${
