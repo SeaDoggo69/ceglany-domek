@@ -1,0 +1,37 @@
+[
+  {
+    "imagePath": "public/images/historic/historic-1922-postcard.webp",
+    "caption": "Pocztówka „Gruss aus Griesel” z 1922 r.",
+    "year": "1922"
+  },
+  {
+    "imagePath": "public/images/historic/historic-village-color.webp",
+    "caption": "Kolorowana panorama Griesel z kościołem",
+    "year": "pocz. XX w."
+  },
+  {
+    "imagePath": "public/images/historic/historic-palace.webp",
+    "caption": "Pałac myśliwski (Jagdschloß) w Griesel",
+    "year": ""
+  },
+  {
+    "imagePath": "public/images/historic/historic-mill-vordermuhle.webp",
+    "caption": "Vordermühle - Pierwszy Młyn",
+    "year": ""
+  },
+  {
+    "imagePath": "public/images/historic/historic-villa-rupnow.webp",
+    "caption": "Villa Rupnow od strony dworskich łąk",
+    "year": ""
+  },
+  {
+    "imagePath": "public/images/historic/historic-arian-pond.webp",
+    "caption": "Staw Ariański",
+    "year": "lata 30. XX w."
+  },
+  {
+    "imagePath": "public/images/historic/historic-lakes-kalkteich.webp",
+    "caption": "Wielki i Mały Staw Kalkteich w dolinie",
+    "year": ""
+  }
+]
