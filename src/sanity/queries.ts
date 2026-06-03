@@ -70,6 +70,44 @@ export const historyPostsQuery = groq`
   }
 `;
 
+// Lightweight list for the History index (cards) — no full body/comments,
+// just a derived excerpt and an approved-comment count.
+export type HistoryCard = {
+  _id: string;
+  title: string;
+  slug: string;
+  publishedAt: string;
+  author?: string;
+  excerpt?: string;
+  mainImage?: SanityImageSource;
+  isArchive: boolean;
+  commentCount: number;
+};
+
+export const historyCardsQuery = groq`
+  *[_type == "historyPost" && locale == $locale]
+  | order(isArchive asc, publishedAt desc){
+    _id, title, "slug": slug.current, publishedAt, author,
+    "excerpt": coalesce(excerpt, pt::text(body[0])),
+    mainImage, isArchive,
+    "commentCount": count(*[_type == "comment" && approved == true && post._ref == ^._id])
+  }
+`;
+
+// Full single post for the detail page (/historia/[slug]).
+export const historyPostBySlugQuery = groq`
+  *[_type == "historyPost" && slug.current == $slug && locale == $locale][0]{
+    _id, title, "slug": slug.current, locale, publishedAt, author,
+    excerpt, body, mainImage, mainImageCaption, isArchive,
+    pullQuote, pullQuoteAuthor,
+    ${commentProjection}
+  }
+`;
+
+export const historySlugsQuery = groq`
+  *[_type == "historyPost" && defined(slug.current)]{ "slug": slug.current, locale }
+`;
+
 export const routesQuery = groq`
   *[_type == "route" && locale == $locale]
   | order(publishedAt desc){

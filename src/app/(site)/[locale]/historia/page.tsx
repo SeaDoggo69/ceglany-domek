@@ -7,14 +7,14 @@ import { historyContent } from "@/lib/history";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
-import { HistoryPost } from "@/components/cms/HistoryPost";
+import { PostCard } from "@/components/cms/PostCard";
 import { GalleryGrid } from "@/components/cms/GalleryGrid";
 import { sanityConfigured } from "@/sanity/env";
 import { client } from "@/sanity/client";
 import {
-  historyPostsQuery,
+  historyCardsQuery,
   galleryQuery,
-  type HistoryPostDoc,
+  type HistoryCard,
   type GalleryPhotoDoc,
 } from "@/sanity/queries";
 
@@ -70,13 +70,13 @@ export default async function HistoryPage({
   const nav = getDictionary(loc).nav;
   const siteUrl = "https://ceglany-domek.pl";
 
-  // Pull blog posts + archival gallery from Sanity (editable by the host).
-  let posts: HistoryPostDoc[] = [];
+  // Pull post cards + archival gallery from Sanity (editable by the host).
+  let posts: HistoryCard[] = [];
   let gallery: GalleryPhotoDoc[] = [];
   if (sanityConfigured) {
     try {
       [posts, gallery] = await Promise.all([
-        client.fetch<HistoryPostDoc[]>(historyPostsQuery, { locale: loc }),
+        client.fetch<HistoryCard[]>(historyCardsQuery, { locale: loc }),
         client.fetch<GalleryPhotoDoc[]>(galleryQuery),
       ]);
     } catch {
@@ -286,7 +286,7 @@ export default async function HistoryPage({
         {freshPosts.length > 0 && (
           <section className="relative py-28 md:py-36 px-6 lg:px-10 bg-cream-soft border-t border-oak/10">
             <div className="mx-auto max-w-6xl">
-              <Reveal className="text-center mb-16 md:mb-20 max-w-2xl mx-auto">
+              <Reveal className="text-center mb-14 md:mb-16 max-w-2xl mx-auto">
                 <p className="eyebrow mb-5">
                   {loc === "pl" ? "Najnowsze" : "Latest"}
                 </p>
@@ -295,20 +295,21 @@ export default async function HistoryPage({
                 </h2>
                 <div className="section-divider mx-auto" />
               </Reveal>
-              <div className="space-y-10 md:space-y-14">
+              <Reveal
+                stagger
+                className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7"
+              >
                 {freshPosts.map((post) => (
-                  <Reveal key={post._id}>
-                    <HistoryPost post={post} locale={loc} />
-                  </Reveal>
+                  <PostCard key={post._id} post={post} locale={loc} />
                 ))}
-              </div>
+              </Reveal>
             </div>
           </section>
         )}
 
         <section className="relative py-28 md:py-36 px-6 lg:px-10 bg-cream border-t border-oak/10">
           <div className="mx-auto max-w-6xl">
-            <Reveal className="text-center mb-16 md:mb-20 max-w-2xl mx-auto">
+            <Reveal className="text-center mb-14 md:mb-16 max-w-2xl mx-auto">
               <p className="eyebrow mb-5">{h.archive.eyebrow}</p>
               <h2 className="font-serif text-[2.4rem] md:text-[3.2rem] leading-[1.05] tracking-tight text-ink mb-6">
                 {h.archive.title}
@@ -317,13 +318,14 @@ export default async function HistoryPage({
               <p className="text-ink-soft text-lg leading-relaxed">{h.archive.lead}</p>
             </Reveal>
 
-            <div className="space-y-10 md:space-y-14">
+            <Reveal
+              stagger
+              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7"
+            >
               {archivePosts.map((post) => (
-                <Reveal key={post._id}>
-                  <HistoryPost post={post} locale={loc} />
-                </Reveal>
+                <PostCard key={post._id} post={post} locale={loc} />
               ))}
-            </div>
+            </Reveal>
 
             <Reveal className="text-center pt-16 mt-16 border-t border-oak/15">
               <p className="text-[0.78rem] uppercase tracking-[0.18em] text-ink-soft mb-8 italic">
