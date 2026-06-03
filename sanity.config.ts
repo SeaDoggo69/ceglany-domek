@@ -1,17 +1,19 @@
+"use client";
+
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
-import { schemaTypes } from "./schemaTypes";
+import { schemaTypes } from "./src/sanity/schemaTypes";
+import { projectId, dataset } from "./src/sanity/env";
 
-// The editing panel the client logs into.
-// Deploy for free with:  npx sanity deploy  ->  https://ceglany-domek.sanity.studio
+// Embedded Studio — served at /studio, deploys automatically with the site.
+// The client just opens /studio and logs in with their Sanity account.
 export default defineConfig({
   name: "ceglany-domek",
   title: "Ceglany Domek — Panel treści",
-
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID || "TODO_PROJECT_ID",
-  dataset: process.env.SANITY_STUDIO_DATASET || "production",
-
+  basePath: "/studio",
+  projectId,
+  dataset,
   plugins: [
     structureTool({
       structure: (S) =>
@@ -20,9 +22,7 @@ export default defineConfig({
           .items([
             S.listItem()
               .title("📝 Historia — wpisy")
-              .child(
-                S.documentTypeList("historyPost").title("Wpisy (Historia)"),
-              ),
+              .child(S.documentTypeList("historyPost").title("Wpisy (Historia)")),
             S.listItem()
               .title("🥾 Szlaki i trasy")
               .child(S.documentTypeList("route").title("Szlaki i trasy")),
@@ -45,6 +45,5 @@ export default defineConfig({
     }),
     visionTool(),
   ],
-
   schema: { types: schemaTypes },
 });

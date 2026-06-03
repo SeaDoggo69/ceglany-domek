@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { notFound } from "next/navigation";
-import "../globals.css";
+import "../../globals.css";
 import { type Locale, locales, getDictionary, CONTACT } from "@/lib/translations";
 
 const inter = Inter({
