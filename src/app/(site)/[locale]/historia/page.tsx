@@ -4,15 +4,26 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { type Locale, locales, getDictionary } from "@/lib/translations";
 import { historyContent } from "@/lib/history";
-import { blogPosts } from "@/lib/blog";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
-import { BlogEntry } from "@/components/BlogEntry";
+import { HistoryPost } from "@/components/cms/HistoryPost";
+import { GalleryGrid } from "@/components/cms/GalleryGrid";
+import { sanityConfigured } from "@/sanity/env";
+import { client } from "@/sanity/client";
+import {
+  historyPostsQuery,
+  galleryQuery,
+  type HistoryPostDoc,
+  type GalleryPhotoDoc,
+} from "@/sanity/queries";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
+
+// Refetch CMS content at most once per minute (ISR).
+export const revalidate = 60;
 
 export async function generateMetadata({
   params,
@@ -57,6 +68,23 @@ export default async function HistoryPage({
   const h = historyContent[loc];
   const nav = getDictionary(loc).nav;
   const siteUrl = "https://ceglany-domek.pl";
+
+  // Pull blog posts + archival gallery from Sanity (editable by the host).
+  let posts: HistoryPostDoc[] = [];
+  let gallery: GalleryPhotoDoc[] = [];
+  if (sanityConfigured) {
+    try {
+      [posts, gallery] = await Promise.all([
+        client.fetch<HistoryPostDoc[]>(historyPostsQuery, { locale: loc }),
+        client.fetch<GalleryPhotoDoc[]>(galleryQuery),
+      ]);
+    } catch {
+      posts = [];
+      gallery = [];
+    }
+  }
+  const freshPosts = posts.filter((p) => !p.isArchive);
+  const archivePosts = posts.filter((p) => p.isArchive);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -215,37 +243,67 @@ export default async function HistoryPage({
               </p>
             </Reveal>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-              {h.archiveGallery.images.map((img, i) => (
-                <figure
-                  key={img.src}
-                  className={`group ${i === 0 ? "sm:col-span-2 lg:col-span-2" : ""}`}
-                >
-                  <div
-                    className={`relative overflow-hidden rounded-sm frame ${
-                      i === 0 ? "aspect-[3/2]" : "aspect-[4/3]"
-                    }`}
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.caption}
-                      fill
-                      sizes={
-                        i === 0
-                          ? "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 66vw"
-                          : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      }
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <figcaption className="mt-3 text-[0.78rem] text-ink-soft italic leading-relaxed pr-2">
-                    {img.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
+            <Reveal>
+              {gallery.length > 0 ? (
+                <GalleryGrid photos={gallery} />
+              ) : (
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                  {h.archiveGallery.images.map((img, i) => (
+                    <figure
+                      key={img.src}
+                      className={`group ${i === 0 ? "sm:col-span-2 lg:col-span-2" : ""}`}
+                    >
+                      <div
+                        className={`relative overflow-hidden rounded-sm frame ${
+                          i === 0 ? "aspect-[3/2]" : "aspect-[4/3]"
+                        }`}
+                      >
+                        <Image
+                          src={img.src}
+                          alt={img.caption}
+                          fill
+                          sizes={
+                            i === 0
+                              ? "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 66vw"
+                              : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          }
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
+                      <figcaption className="mt-3 text-[0.78rem] text-ink-soft italic leading-relaxed pr-2">
+                        {img.caption}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              )}
+            </Reveal>
           </div>
         </section>
+
+        {/* Latest posts (newest on top) — added by the host in the CMS */}
+        {freshPosts.length > 0 && (
+          <section className="relative py-28 md:py-36 px-6 lg:px-10 bg-cream-soft border-t border-oak/10">
+            <div className="mx-auto max-w-6xl">
+              <Reveal className="text-center mb-16 md:mb-20 max-w-2xl mx-auto">
+                <p className="eyebrow mb-5">
+                  {loc === "pl" ? "Najnowsze" : "Latest"}
+                </p>
+                <h2 className="font-serif text-[2.4rem] md:text-[3.2rem] leading-[1.05] tracking-tight text-ink mb-6">
+                  {loc === "pl" ? "Nowe wpisy" : "Latest posts"}
+                </h2>
+                <div className="section-divider mx-auto" />
+              </Reveal>
+              <div className="space-y-10 md:space-y-14">
+                {freshPosts.map((post) => (
+                  <Reveal key={post._id}>
+                    <HistoryPost post={post} locale={loc} />
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="relative py-28 md:py-36 px-6 lg:px-10 bg-cream border-t border-oak/10">
           <div className="mx-auto max-w-6xl">
@@ -259,14 +317,9 @@ export default async function HistoryPage({
             </Reveal>
 
             <div className="space-y-10 md:space-y-14">
-              {blogPosts.map((post, i) => (
-                <Reveal key={post.title}>
-                  <BlogEntry
-                    post={post}
-                    locale={loc}
-                    t={h.archive}
-                    reverse={i % 2 === 1}
-                  />
+              {archivePosts.map((post) => (
+                <Reveal key={post._id}>
+                  <HistoryPost post={post} locale={loc} />
                 </Reveal>
               ))}
             </div>

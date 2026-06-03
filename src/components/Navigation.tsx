@@ -53,6 +53,7 @@ export function Navigation({ locale }: { locale: Locale }) {
     { href: "#gallery", label: t.gallery },
     { href: "#reviews", label: t.reviews },
     { href: `/${locale}/historia`, label: t.history, page: true },
+    { href: `/${locale}/szlaki`, label: t.routes, page: true },
     { href: "#faq", label: t.faq },
     { href: "#contact", label: t.contact },
   ];
