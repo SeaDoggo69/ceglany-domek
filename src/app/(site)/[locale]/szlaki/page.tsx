@@ -14,7 +14,7 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const revalidate = 60;
+export const revalidate = 30;
 
 const t = {
   pl: {

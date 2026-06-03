@@ -22,8 +22,9 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-// Refetch CMS content at most once per minute (ISR).
-export const revalidate = 60;
+// Refetch CMS content frequently so moderated comments / new posts
+// appear soon after the host publishes them.
+export const revalidate = 30;
 
 export async function generateMetadata({
   params,
