@@ -78,7 +78,7 @@ export default async function RoutesPage({
 
   return (
     <>
-      <Navigation locale={loc} />
+      <Navigation locale={loc} alwaysSolid />
       <main className="pt-28 md:pt-36">
         <section className="px-6 lg:px-10 pb-8">
           <Reveal className="mx-auto max-w-6xl text-center">

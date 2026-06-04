@@ -6,7 +6,15 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { type Locale, locales, BOOKING_URL, getDictionary } from "@/lib/translations";
 
-export function Navigation({ locale }: { locale: Locale }) {
+export function Navigation({
+  locale,
+  alwaysSolid = false,
+}: {
+  locale: Locale;
+  /** Force the dark-text / solid background style — for pages whose top
+   *  is a light background (no dark hero image), e.g. /szlaki and posts. */
+  alwaysSolid?: boolean;
+}) {
   const t = getDictionary(locale).nav;
   const pathname = usePathname();
   const otherLocale = locales.find((l) => l !== locale) ?? "en";
@@ -58,7 +66,7 @@ export function Navigation({ locale }: { locale: Locale }) {
     { href: "#contact", label: t.contact },
   ];
 
-  const onTop = !scrolled && !open;
+  const onTop = !alwaysSolid && !scrolled && !open;
   const textBase = onTop ? "text-cream-soft" : "text-ink";
   const textMuted = onTop
     ? "text-cream-soft/80 hover:text-cream-soft"
@@ -67,7 +75,7 @@ export function Navigation({ locale }: { locale: Locale }) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled || open
+        scrolled || open || alwaysSolid
           ? "bg-cream-soft/90 backdrop-blur-md border-b border-oak/10 py-3"
           : "bg-gradient-to-b from-ink/40 to-transparent py-5"
       }`}

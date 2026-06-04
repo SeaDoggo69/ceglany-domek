@@ -112,7 +112,7 @@ export default async function HistoryPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <Navigation locale={loc} />
+      <Navigation locale={loc} alwaysSolid />
       <main className="pt-28 md:pt-32 pb-24 px-6 lg:px-10 bg-cream-soft min-h-screen">
         <div className="mx-auto max-w-5xl">
           <Link
